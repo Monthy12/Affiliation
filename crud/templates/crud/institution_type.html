@@ -1,0 +1,107 @@
+{% extends 'base_layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <header class="home">
+        <div class="row">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-9 margin-big text_justify pl-5">
+
+                <form method="POST" action="#" id="add_inst" name="add_inst" onsubmit="return validate()">
+                    {% csrf_token %}
+                    {{ form.media }}
+
+                    
+                    <div class="card mt-5 pb-2">
+                        
+                        <div class="card-header text-center">
+                            Type of Institution (You can select more than one)
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="row" id="choice'">
+
+                                <div class="d-flex ">
+
+                                    <div class="form-check form-check-inline align-self-start p-3 ">
+                                        <input class="form-check-input" type="checkbox" id="public" name="inst_type" value="public"  class="group-required">
+                                        <label class="form-check-label" for="public">Public</label>
+                                    </div>
+                                    <div class="form-check form-check-inline align-self-center p-3">
+                                        <input class="form-check-input" type="checkbox" id="private" name="inst_type" value="private">
+                                        <label class="form-check-label" for="private">Private</label>
+                                    </div>
+                                    <div class="form-check form-check-inline align-self-end p-3">
+                                        <input class="form-check-input" type="checkbox" id="mission" name="inst_type" value="mission">
+                                        <label class="form-check-label" for="mission">Mission</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="row">
+                        
+                        <div class="col-md-2 offset-md-6">
+                            <div class="row mr-auro">
+                                <div class="d-flex ">
+
+                                    <div class="mr-5">
+                                        <a href="{% url 'institution' %}" class="btn btn-primary btn-block color-text-white my-5 mx-5"><i class="fas fa-arrow-alt-circle-left"></i><span class="pl-3">Back</span></a>
+                                    </div>
+
+                                    <div class="mr-5">
+
+                                            <button type="button" class="btn btn-primary btn-block color-text-white my-5 mx-5" data-toggle="modal" data-target="#exampleModal">
+                                                <i class="fas fa-save"></i> <span class="pl-2">Save & Continue</span> 
+                                            </button>
+                                            
+                                            
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmation Message</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <div class="modal-body my-3">
+                                                        Are you sure you to save this data?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger px-5" data-dismiss="modal">Cancel</button>
+                                                    <input type="submit"  id="submit_institution" value="Save & Continue" class="btn btn-primary color-text-white">
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+
+                                </div>
+
+                            </div>
+                                
+                            </div>
+                            
+                    </div>
+                </form> 
+
+            </div>
+
+            <div class="col-md-1"></div>
+
+        </div>
+    </header>
+
+{% endblock %}

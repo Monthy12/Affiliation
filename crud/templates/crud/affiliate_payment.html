@@ -1,0 +1,134 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Payment</p></h2>
+                <p>You are required to make payment of an amount of GHS XXXX.XX and upload scan copy of the bank deposit slip(s) accompanying the transaction.The bank details have been provided below.</p>
+                <p class="mb-5">Please not that without uploading the payment slip(s) to be vierified, you cannot submit your application.</p>
+                <ul>
+                    <li class="ml-5 mt-3">ACCOUNT NAME: NABPTEX-EXAMINATION FEES</li>
+                    <li class="ml-5">ACCOUNT NO: 1011130003543</li>
+                    <li class="ml-5">BANK: GCB BANK</li>
+                    <li class="ml-5">BRANCH: HIGH STREET, ACCRA</li>
+                </ul>
+
+            </div>
+
+            <div class="card">
+                <div class="card-header text-center">PAYMENT SLIP UPLOAD</div> 
+                <div class="card-body">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary px-5" data-toggle="modal" data-target="#exampleModalCenter">
+                        Click to Upload Payment Slip
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">PAYMENT SLIP UPLOAD</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="#" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="modal-body modal_reduce">
+                                        <div class="row mt-4 pl-4 pr-4">
+                                            <div class="col-md-5">
+
+                                                <div class="form-group">
+                                                    <!-- <label for="documents_name">Document Name</label> -->
+                                                    <select class="form-control" id="payment_name" name="payment_name" onchange="myDocumentFunction()" required>
+                                                        <option value="">--- Please Select ---</option>
+                                                        <option value="affiliation_payment">Payment Slip</option>
+                                                       
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-5">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="customFile" name="payment_upload" required>
+                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2 mr-auto">
+                                                <button type="submit" class="btn btn-primary px-5 py-1">Upload</button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+ 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table mt-5 table-hover"> 
+                        <thead>
+                            <tr>
+                                <th>Payment type</th>
+                                <th>Document</th>
+                                <th>Date Uploaded</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for payment in payments %}
+                            
+                                <tr>
+                                    <td><i>Payment Slip</i></td>
+                                    <td><i>{{ payment.payment }}</i></td>
+                                    <td>{{ payment.datetime }}</td>
+
+                                    <td>
+                                        <form action="{% url 'delete_payment' payment.pk %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger btn-small" onclick="deletefile()">Remove</button>
+                                        </form>
+                                        <!-- <button type="submit" class="btn btn-danger btn-small" onclick="deletefile()">Remove</button> -->
+                                    </td>
+
+                                </tr>
+                            
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 offset-md-6">
+                    <div class="row mr-auto">
+                        <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                        <!-- <input type="submit"  id="submit_institution" value="Review & Submit" class="btn btn-primary btn-block color-text-white mb-5 mt-5"> -->
+                        <a href="{% url 'summary' %}" class="btn btn-primary btn-block color-text-white mb-5 mt-5">Review & Submit</a>
+
+                        <button onclick="deletefile()">Click me</button>
+                    </div>
+                </div>
+
+            </div>   
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

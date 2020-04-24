@@ -1,0 +1,80 @@
+{% extends 'base_auth.html' %}
+
+{% block content %}
+
+<header class="home-section">
+    <div class="dark-overlay">
+        
+    </div>
+</header>
+
+<div class="col-md-6 offset-md-3 u-center-small mt-5">
+    <div class=" card-form signup-box">
+        <div class="card-body">
+            <h2 class="text-center mt-4 mb-4">Sign up</h2>
+
+            <div class="col-md-12">
+                <form action="{% url 'signup' %}" method="POST">
+                    {% csrf_token %}
+            
+                    {% if form.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            <p>Your form has errors</p>
+            
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    {{ field.errors }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+            
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            {{ form.username }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.email }}
+                        </div>
+                    </div>
+            
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            {{ form.first_name }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+            
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            {{ form.password1 }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+            
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            {{ profile_form.designation }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ profile_form.contact }}
+                        </div>
+                    </div>
+            
+                    <input type="submit" value="Sign up" class="btn btn-primary btn-block mb-5">
+                </form>
+            </div>
+            
+        </div>  
+    </div>
+</div>
+     
+
+{% endblock %}

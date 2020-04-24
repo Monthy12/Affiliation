@@ -1,0 +1,71 @@
+{% extends 'base_layout.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<header class="home">
+        <div class="row">
+
+            <div class="col-md-3 home-small-bar">
+                <!-- <img src="{% static 'img/pic1.png' %}" alt=""> -->
+            </div>
+
+            <div class="col-md-8 margin-big text_justify pl-5">
+                <!-- <img src="{% static 'img/nabptex_logo2.jpeg' %}" class="rounded mx-auto d-block mb-5" alt="nabptex_logo"> -->
+                <img src="{% static 'img/nabptex_logo.png' %}" class="rounded mx-auto d-block" alt="nabptex_logo">
+                <p class="text-center mb-5 text_color_red">NATIONAL BOARD FOR PROFESSIONAL AND TECHNICIAN EXAMINATION</p>
+                
+                <h3 class="text-center mb-5"><u>GENERAL INFORMATION FOR PROSPECTIVE APPLICANTS FOR AFFILIATION</u></h3>
+
+                <p class="mb-5">Any institution which intends to apply for affiliation with NABPTEX, an Agency of the Ministry of Education established by an Act of Parliament, Act 1994 (Act 492) should note the following processes:</p>
+
+                <p class="mt-5 mb-5">
+                    <ol>
+                        <li class="mb-5"><b>Registration</b>: The Institution would have to be registered under the Registrar General’s Department and any relevant Government Agency.</li>
+                        <li class="mb-5"><b>Accreditation</b>: It is mandatory that any institution intending to affiliate with  NABPTEX or mount NABPTEX tertiary programmes must have obtain authorization and accreditation from the National Accreditation Board (NAB). If you are a new Institution and do not have an institutional accreditation with NAB, then you will need to provide a Certificate of Authorization from NAB for your  pending accreditation. However, if you are an existing institution which already have an institutional accreditation with NAB, then you will need your Certificate of Accreditation.</li>
+                        <li class="mb-5"><b>Application for Affiliation</b>: The prospective affiliate institution must complete and submit the online application</li>
+                        <li class="mb-5"><b>Readiness Assessment</b>: After successfully submitting the online application, officials from NABPTEX will then visit your institution to assess your level of preparedness and the quality assurance structures in place. This is to ensure that quality standards in terms of staffing (administrative and academic), training and training equipment, assessment, etc. are met. Recommendation from the Assessment Report shall be implemented by the institution before approval to run a programme is given.</li>
+                        <li class="mb-5"><b>Affiliation</b>: Affiliation shall be granted upon receipt of the online application where all requirements have been met. It should be noted that grant of affiliation does not constitute approval to run a programme. After satisfying the necessary requirements at point 4 with its accompanying application at point 6 below, approval shall be given to run the proposed programme.</li>
+                        <li class="mb-5"><b>Mounting of Programmes</b>: An institution shall apply to mount a programme via mounting a programme section of the affiliation portal. There are three (3) main scenarios under which programmes may be mounted.
+                            <ul>
+                                <li class="ml-5 mt-3">Adopting an existing programme</li>
+                                <li class="ml-5">Proposing programme by submitting draft curriculum to NABPTEX</li>
+                                <li class="ml-5">Contracting NABPTEX to develop curriculum in a proposed programme</li>
+                            </ul>
+                        </li>
+                        <li class="mb-5"><b>Levels of Programmes</b>: An institution may apply to run programmes at the following levels:
+                            <ul>
+                                <li class="ml-5 mt-3">Higher National Diploma (HND)</li>
+                                <li class="ml-5">Diploma</li>
+                            </ul>
+                        </li>
+                        <li class="mb-3"><b>Payment</b>: Applying for affiliation and mounting of programmes goes with fees. You are required to make payment of GHS XXXX.XX for affiliation and GHS XXXX.XX for mounting of programmes when granted affiliation. Below are bank details:
+                            <ul>
+                                <li class="ml-5 mt-3">ACCOUNT NAME: NABPTEX-EXAMINATION FEES</li>
+                                <li class="ml-5">ACCOUNT NO: 1011130003543</li>
+                                <li class="ml-5">BANK: GCB BANK</li>
+                                <li class="ml-5">BRANCH: HIGH STREET, ACCRA</li>
+                            </ul>
+                        </li>
+                        <p class="mb-5"><i>***Please note that without these payments, your application would be rendered void.</i></p>
+                        <li class="mb-5"><b>Information</b>: For further enquiries, kindly call +233-302 932 091 or email to: cdr@nabptex.gov.gh</li>
+                    </ol>
+                </p> 
+
+               
+                <!-- <div class="row pb-5"> -->
+                    <div class="col-md-4 offset-md-4">
+                        <div class="row">
+                            <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                            <a href="{% url 'institution' %}" class="btn btn-primary btn-block color-text-white mb-5 mt-5">Proceed</a>
+                        </div>
+                    </div>
+
+                
+            </div>
+            <div class="col-md-2 home-small-bar">
+                <!-- <p>Home small bar 2</p> -->
+            </div>
+        </div>
+    </header>
+
+{% endblock %}

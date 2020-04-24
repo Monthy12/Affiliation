@@ -1,0 +1,98 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-danger mb-5" role="alert">
+                <h2><p class="mb-4">Caution</p></h2>
+                <p>You are mandated to have an Institutional Accreditation from the National Accreditation Board (NAB), before your application to mount a programme with NABPTEX can be submitted and approved per the assessment report of your readiness to run the chosen programme.</p>
+
+            </div>
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Mount a Programme</p></h2>
+                <p>Please choose a programme to desire to run from NABPTEX existing Programmes List under the various level of Higher National Diploma and Diploma.</p>
+
+            </div>
+
+            <div class="card">
+                <h5 class="card-header text-center">MOUNT A PRGRAMME</h5>
+                <div class="card-body">
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    <div class="card-body body-1">
+        
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="postal">Level</label>
+                                    <div class="">
+                                        <select name="level" id="input" onchange="myMultiple()" required>
+                                            <option value="">--------- Select level ------</option>
+                                            <option>HND</option>
+                                            <option>DIPLOMA</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                   
+                                    <label for="postal">Programme Name</label>
+                                    <div class="" id="output">
+                                        <select name="programme" onclick="specifyProgramme()" id="programme" required>
+                                            <option value="">--------- Select Programme ------</option>
+                                            <option value="">Other (Please Specify)</option>
+                                        
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4" id="programme_name_hidden">
+                                <div class="form-group">
+                                    <label for="postal">Programme Name</label>
+                                    <input type="text" class="form-control" id="programme_name" name="programme_name" placeholder="" value="">
+                                </div>
+                            </div>
+
+                            
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2 offset-md-8">
+                            <div class="row mr-auto">
+                                <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                <input type="submit"  id="submit_institution" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                            </div>
+                        </div>
+    
+                    </div>  
+
+                </form>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

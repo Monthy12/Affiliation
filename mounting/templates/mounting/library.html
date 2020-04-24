@@ -1,0 +1,95 @@
+{% extends 'base_mount.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Library Books and Reference Materials</p></h2>
+                <p>In this section, you are required to provide the list of your provided catalogue.</p>
+
+
+            </div>
+
+            <div class="card">
+                <div class="card-header text-center">LIBRARY BOOKS AND REFERENCE MATERIALS</div>
+                <div class="card-body">
+
+                        <form method="POST" action="#" id="add_book" name="add_book">
+                            {% csrf_token %}
+                            <div class="table-responsive">
+                                <table class="table table-hover "  id="dynamic_book">
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <label for="mentor">Subject Area</label>
+                                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Name of Subject Area" required>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <td>
+                                            <label for="mentor_programme">No. of Books</label>
+                                            <input type="text" class="form-control" id="number_of_books" name="number_of_books" placeholder="eg. 20" required>
+                                        </td>
+
+ 
+                                        <td>
+                                            <label for="mentor_programme">No. of Reference Books</label>
+                                            <input type="text" class="form-control" id="number_of_reference" name="number_of_reference" placeholder="eg. 20" required>
+                                        </td>
+
+
+                                        <td>
+                                            <label for="mentor_programme">No. of e-books</label>
+                                            <input type="text" class="form-control" id="number_of_ebooks" name="number_of_ebooks" placeholder="eg. 20" required>
+                                        </td>
+
+
+                                        <td>
+                                            <label for="mentor_programme">No. of Audio-Visuals</label>
+                                            <input type="text" class="form-control" id="number_of_audio_visuals" name="number_of_audio_visuals" placeholder="eg. 20" required>
+                                        </td>
+
+
+                                        <td>
+                                            <label for="mentor_programme">Others (journal, etc)</label>
+                                            <input type="text" class="form-control" id="number_of_others" name="number_of_others" placeholder="eg. 20" required>
+                                        </td>
+
+                                        <td>
+                                            <input type="button" value="Add new entry" name= "add_library" id="add_library" class="btn btn-success color-text-white btn-bottom-small">
+                                        </td >
+                                    </tr>
+
+                                </table>
+
+                                <div class="row">
+                                    <div class="col-md-2 offset-md-6">
+                                        <div class="row mr-auto">
+                                            <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                            <input type="submit"  id="submit_library" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                        </div>
+                                    </div>
+                
+                                </div>
+
+                            </div>
+                        </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

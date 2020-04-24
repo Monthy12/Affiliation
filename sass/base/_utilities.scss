@@ -1,0 +1,109 @@
+.u-center-big {
+    
+    padding-top: 15rem;
+   }
+   
+.u-center-small {
+    
+    padding-top: 1rem;
+}
+
+.color-text-white {
+    color: $color-white;
+}
+
+.f_weight-big {
+    font-weight: 500;
+}
+
+.t_size-medium {
+    font-size: 1rem;
+}
+
+.t_size-big {
+    font-size: 2rem;
+}
+
+.t_size-bigger {
+    font-size: 3.5rem;
+}
+
+.text_justify {
+text-align: justify;
+text-justify: inter-word;
+}
+
+.margin-big {
+    margin-top: 6rem;
+}
+
+.margin-bigger-top {
+    margin-top: 10rem;
+}
+
+.margin-bottom-small {
+    margin-bottom: 2rem;
+}
+
+.btn-bottom-small {
+    margin-top: 32px;
+}
+
+#admin-tap {
+    background-color: $color-admin-tap;
+}
+
+#admin-tap-1 {
+    background-color: $color-admin-tap-1;
+}
+
+#admin-tap-2 {
+    background-color: $color-admin-tap-2;
+}
+
+#signup-color{
+    color: #FA8072;
+    font-weight: 700;
+}
+
+
+
+
+// .u-border-radius-small {
+//     border-radius: 100px;
+// }
+.image-resize {
+    height: 100vh;
+    width: 10px;
+}
+
+.medium-image {
+    height: 100%;
+    width: auto;
+}
+
+.margin_left_big {
+    margin-left: 60rem;
+}
+
+
+#datepicker > span:hover {
+    cursor: pointer;
+}
+
+
+// .size-small{
+//     width: 70px;
+//     height: 40px;
+// }
+
+.text_color_red {
+    color: red;
+    font-weight: 900;
+    font-size: 1.2rem;;
+}
+
+.padding_x{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}

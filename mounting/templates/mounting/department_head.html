@@ -1,0 +1,112 @@
+{% extends 'base_mount.html' %}
+
+{% block content %}
+
+
+<header class="department_head">
+    <div class="row">
+        <div class="col md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Details of Head of Department for Programme</p></h2>
+                <!-- <p>lum accusantium aliquam volupudiandae voluptatum esse corporis praesentium ad atque.</p> -->
+            </div>
+            <!-- ////////////////////////// -->
+
+
+            <form method="POST" action="#" id="add_inst" name="add_inst">
+                {% csrf_token %}
+                {{ form.media }}
+
+                <div class="card pb-4 coll">
+                    <div class="card-header text-center">
+                        HEAD OF DEPARTMENT 
+                    </div>
+
+                    <div class="card-body body-1">
+
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="margin-bottom-small">
+                                    <label for="department_name">Department</label>
+                                    <input type="text" class="form-control" id="department_name" name="department_name" placeholder="Name of Department" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name_of_head">Name of Head</label>
+                                    <input type="text" class="form-control" id="name_of_head" name="name_of_head" placeholder="Name of Head" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="highest_qualification">Highest Qualification</label>
+                                    <input type="text" class="form-control" id="highest_qualification" name="highest_qualification" placeholder="Highest Qualification" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="programme_of_study">Contact</label>
+                                    <input type="text" class="form-control" id="head_contact" name="head_contact" placeholder="eg. 233244094532" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="awarding_institution">Email</label>
+                                    <input type="email" class="form-control" id="head_email" name="head_email" placeholder="eg. kule12@gmail.com" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="year_of_completion">Date of Appointment As HOD</label>
+                                    {{ form.appointment_date }}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2 offset-md-8">
+                        <div class="row mr-auto">
+                            <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                            <input type="submit"  id="submit_institution" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                        </div>
+                    </div>
+
+                </div>        
+
+            </form> 
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

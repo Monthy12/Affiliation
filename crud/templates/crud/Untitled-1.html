@@ -1,0 +1,264 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<header class="home">
+        <div class="row">
+            <div class="col md-2"></div>
+
+            <div class="col-md-9 margin-big text_justify pl-5">
+
+                <div class="card">
+                    <h5 class="card-header text-center">INSTITUTION</h5>
+                    <div class="card-body">
+
+                        <form method="POST" action="#" id="add_inst" name="add_inst">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="institution">Name of Institution</label>
+                                        <input type="text" class="form-control" id="institution" name="institution" placeholder="Name of Institution" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="postal">Postal Address</label>
+                                        <input type="text" class="form-control" id="postal" name="postal" placeholder="Postal Address" required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="digital">Digital Address</label>
+                                        <input type="text" class="form-control" id="digital" name="digital" placeholder="Digital Address" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="city">Town/City</label>
+                                        <input type="text" class="form-control" id="city"  name="city" placeholder="Town/City" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="region">Region</label>
+                                        <select class="form-control" id="region" name="region" required>
+                                            <option value="">--- Please Select ---</option>
+                                            <option value="Oti Region">Oti Region</option>
+                                            <option value="Bono East Region">Bono East Region</option>
+                                            <option value="Ahafo Region">Ahafo Region</option>
+                                            <option value="Bono Region">Bono Region</option>
+                                            <option value="North East Region">North East Region</option>
+                                            <option value="Savannah Region">Savannah Region</option>
+                                            <option value="Western North Region">Western North Region</option>
+                                            <option value="Western Region">Western Region</option>
+                                            <option value="Volta Region">Volta Region</option>
+                                            <option value="Greater Accra Region">Greater Accra Region</option>
+                                            <option value="Eastern Region">Eastern Region</option>
+                                            <option value="Ashanti Region">Ashanti Region</option>
+                                            <option value="Central Region">Central Region</option>
+                                            <option value="Northern Region">Northern Region</option>
+                                            <option value="Upper East Region">Upper East Region</option>
+                                            <option value="Upper West Region">Upper West Region</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email of Institution" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="website">Website</label>
+                                        <input type="text" class="form-control" id="website" name="website" placeholder="website" required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="contact">Official Phone Number</label>
+                                        <input type="text" class="form-control" id="contact" name="contact" placeholder="Official Phone Number" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Type of Institution (You can select more than one)
+                                        </div>
+                                        <div class="d-flex">
+                                                <div class="form-check form-check-inline align-self-start p-3">
+                                                    <input class="form-check-input" type="checkbox" id="public" name="inst_type" value="public">
+                                                    <label class="form-check-label" for="public">Public</label>
+                                                </div>
+                                                <div class="form-check form-check-inline align-self-center p-3">
+                                                    <input class="form-check-input" type="checkbox" id="private" name="inst_type" value="private">
+                                                    <label class="form-check-label" for="private">Private</label>
+                                                </div>
+                                                <div class="form-check form-check-inline align-self-end p-3">
+                                                    <input class="form-check-input" type="checkbox" id="mission" name="inst_type" value="mission">
+                                                    <label class="form-check-label" for="mission">Mission</label>
+                                                </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-5 mb-5">
+
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            Head of Institution
+                                        </div>
+                                        <div class="d-flex mt-4">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="designation">Designation</label>
+                                                    <select class="form-control" id="head_designation" name="head_designation" required>
+                                                        <option value="">--- Please Select ---</option>
+                                                        <option value="Mr">Mr</option>
+                                                        <option value="Mrs">Mrs</option>
+                                                        <option value="Miss">Miss</option>
+                                                        <option value="Dr">Dr</option>
+                                                        <option value="Prof">Prof</option>
+                                                        <option value="Rev">Rev</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3" id="agency">
+                                                <div class="form-group">
+                                                    <label for="head_name">Name</label>
+                                                    <input type="text" class="form-control" id="head_name" name="head_name" placeholder="Name of Head of Institution" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="phone_number">Phone Number</label>
+                                                    <input type="text" class="form-control" id="head_phone_number" name="head_phone_number" placeholder="Phone Number" required>
+                                                  
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="head_email">Email</label>
+                                                    <input type="text" class="form-control" id="head_email" name="head_email" placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                  
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row mt-5 mb-5">
+
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            Business Registration Details
+                                        </div>
+                                        <div class="d-flex mt-4">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="business">Bussiness Registration Type</label>
+                                                    <select class="form-control" id="business" name="business" onchange="myBusinessFunction()" required>
+                                                        <option value="">--- Please Select ---</option>
+                                                        <option value="RGD">Registrar General Department</option>
+                                                        <option value="MMDA">Metropolitan, Municipal and District Assemblies</option>
+                                                        <option value="Professional Agency">Professional Agency</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3" id="agency">
+                                                <div class="form-group">
+                                                    <label for="agency_name">Agency Name</label>
+                                                    <input type="text" class="form-control" id="agency_name" name="agency_name" placeholder="Agency Name" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="registration_date">Date of Registration</label>
+                                                    <div class="input-group date" id="registration_date" name="registration_date" data-target-input="nearest">
+                                                        <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker1" required>
+                                                        <!-- <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div> -->
+                                                    </div>
+                                                  
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="registration_number">Registration Number</label>
+                                                    <input type="text" class="form-control" id="registration_number" name="registration_number" placeholder="Registration Number" required>
+                                                </div>
+                                            </div>
+                                  
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 offset-md-6">
+                                    <div class="row mr-auto">
+                                        <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                        <input type="submit"  id="submit_institution" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                    </div>
+                                </div>
+            
+                                <div class="col-md-2">
+                                    <div class="row mr-auto">
+                                        <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                        <input type="submit" value="Save & Exit"  id="submit_institution" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form> 
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="col-md-1"></div>
+
+        </div>
+    </header>
+
+{% endblock %}

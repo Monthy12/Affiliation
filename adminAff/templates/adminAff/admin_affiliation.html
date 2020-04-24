@@ -1,0 +1,44 @@
+{% extends 'base_admin.html' %}
+
+{% block content %} 
+    
+<header class="home">
+    <div class="row">
+        <div class="col md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <table class="table table-bordered table-hovered admin_affiliation">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>NAME OF INSTITUTION</td>
+                        <td>STATUS</td>
+                        <td>ACTION</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for institution in institutions %}
+                        <tr>
+                            <td>{{ institution.id }}</td>
+                            <td>{{ institution.name }}</td>
+                            <td>{{ institution.status }}</td>
+                            <td><a href="{% url 'client_details' institution.user_id %}" class="btn btn-sm btn-info">View</a></td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+
+
+            </table>
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

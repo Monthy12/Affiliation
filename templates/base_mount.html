@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,600,600i" rel="stylesheet">
+    
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" rel="stylesheet"> -->
+
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+        <!-- <ink href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+
+        <!-- ADDING CUSTOME STYLESHEET -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+        <!-- ADD BOOTSTRAP CSS FILES -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+        <!-- <link rel="stylesheet" href="{% static 'css/datepicker.css' %}"> -->
+
+        <link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}">
+
+  
+    
+        <!-- FONT AWESOME -->
+        <script src="https://kit.fontawesome.com/7c6eb29ba2.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+        <title>Mount Programme</title>
+    
+
+    
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-xl bg-custom-dark navbar-dark fixed-top p-3">
+        <div class="container-fluid">
+
+            <!-- Brand -->
+            <!-- <a class="navbar-brand" href="#">NABPTEX Logo</a> -->
+        
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                <!-- Dropdown -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown mr-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <i class="fas fa-user mr-2"></i> <span>Welcome, {{ request.user.first_name }}</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user-circle mr-2"></i> Profile
+                            </a>
+
+                        </div>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">
+                                <i class="fas fa-user-times mr-2"></i> Logout
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">
+                                <i class="fas fa-user-times mr-3"></i> Login
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <nav class="navbar navbar-expand-sm fixed-top" id="sidebar-wrapper">
+
+        <ul class="nav sidebar-nav">
+
+            <!-- <li><a href="{% url 'mentor' %}">Mentor Institution</a></li> -->
+            <li><a href="{% url 'mount_programme' %}">Applying Programme</a></li>
+            <li><a href="{% url 'department_head' %}">Head Of Department</a></li>
+            <li><a href="{% url 'room_detail' %}">Details Of Room</a></li>
+            <li><a href="{% url 'library' %}">Library and Reference</a></li>
+            <li><a href="{% url 'laboratory' %}">Laboratory</a></li>
+            <li><a href="{% url 'examination_unit' %}">Examination Unit</a></li>
+            <li><a href="{% url 'mount_document' %}">Document</a></li>
+            <li><a href="{% url 'mount_payment' %}">Payment</a></li>
+            <li><a href="{% url 'mount_summary' %}">Summary</a></li>
+
+
+        </ul>
+        <!-- </div> -->
+    </nav>
+
+    
+    
+
+    {% block content %}
+
+    {% endblock %}
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <!-- <script src="{% static 'js/bootstrap-datepicker.js' %}"></script> -->
+
+    <script src="{% static 'js/sweetalert2.min.js' %}"></script>
+
+    <script src="{% static 'js/myjavascript.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    
+</body>
+</html>

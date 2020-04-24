@@ -1,0 +1,73 @@
+{% extends 'base_auth.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-xl bg-custom-dark navbar-dark fixed-top p-3">
+        <div class="container-fluid">
+
+            <!-- Brand -->
+            <!-- <a class="navbar-brand" href="#">NABPTEX Logo</a> -->
+        
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                <!-- Dropdown -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown mr-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <i class="fas fa-user mr-2"></i> <span>Welcome, {{ request.user.first_name|capfirst }}</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user-circle mr-2"></i> Profile
+                            </a>
+
+                        </div>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">
+                                <i class="fas fa-user-times mr-2"></i> Logout
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">
+                                <i class="fas fa-user-times mr-3"></i> Login
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+<header class="affiliation_completed">
+        <div class="row">
+
+            <div class="col-md-2 home-small-bar">
+                <!-- <img src="{% static 'img/pic1.png' %}" alt=""> -->
+            </div>
+
+            <div class="col-md-8 margin-big text_justify pl-5">
+
+                <div class="alert alert-danger" role="alert">
+                    <p>Sorry {{ request.user.first_name|capfirst }}</p>
+                    <p class="mb-5">Your application for mounting a Programme is incomplete. Please check if you have provided all relevant data before submitting the application.</p>
+                  </div>
+                
+            </div>
+            <div class="col-md-2 home-small-bar">
+                <!-- <p>Home small bar 2</p> -->
+            </div>
+        </div>
+    </header>
+
+{% endblock %}

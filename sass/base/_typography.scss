@@ -1,0 +1,10 @@
+.sign-up {
+    // background-color: black;
+
+    &__vh {
+        height: 100vh;
+        background-color: $color-primary-dark;
+        clip-path: polygon(0 0,100% 0,70% 100%,0 100%);
+        
+    }
+}

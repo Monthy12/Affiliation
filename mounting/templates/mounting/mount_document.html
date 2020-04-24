@@ -1,0 +1,151 @@
+{% extends 'base_mount.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Documents</p></h2>
+                <p>Please upload the following documents:</p>
+
+                <ol class="ml-5">
+                    <!-- <li>Registration of Business Certificate from Registrar General's Department</li> -->
+                    <li>Certificate of Accreditation</li>
+                    <li>List of Teaching Staff</li>
+                    <li>List of Books and Reference Materials</li>
+                    <li>Inventory of Workshop Equipment and Cosummables available</li>
+                    <li>Fire Certificate</li>
+                    <li>Any Other Relevant Documents</li>
+                </ol> 
+
+            </div>
+
+            <div class="card">
+                <div class="card-header text-center">DOCUMENTS UPLOAD</div>
+                <div class="card-body">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary px-5" data-toggle="modal" data-target="#exampleModalCenter">
+                        Click to Upload Document
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">DOCUMENTS UPLOAD</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="#" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="modal-body modal_reduce">
+                                        <div class="row mt-4 pl-4 pr-4">
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+                                                    <!-- <label for="documents_name">Document Name</label> -->
+                                                    <select class="form-control" id="documents_name" name="documents_name" onchange="myDocumentFunction()" required>
+                                                        <option value="">--- Please Select ---</option>
+                                                        <option value="Certificate of Accreditation">Certificate of Accreditation</option>
+                                                        <option value="List of Teaching Staff">List of Teaching Staff</option>
+                                                        <option value="List of Books and Reference Materials">List of Books and Reference Materials</option>
+                                                        <option value="Inventory of Workshop Equipment and Cosummables available">Inventory of Workshop Equipment and Cosummables available</option>
+                                                        <option value="Fire Certificate">Fire Certificate</option>
+                                                        <option value="referred">Any Other (Please Specify)</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="customFile" name="doc_upload" required>
+                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row pl-4 pr-4" id="doc_name_all">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="doc_name">Document Name</label>
+                                                    <input type="text" class="form-control" id="doc_name" name="doc_name" placeholder="Please Specify">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-4  pr-4">
+                                            <div class="col-md-12 margin_left_big">
+                                                <button type="submit" class="btn btn-primary">Upload</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+ 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table mt-5">
+                        <thead>
+                            <tr>
+                                <th>Document Name</th>
+                                <th>Document</th>
+                                <th>Date Uploaded</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for document in documents %}
+                            
+                                <tr>
+                                    <td><i>{{ document.title }}</i></td>
+                                    <td><i>{{ document.document }}</i></td>
+                                    <td>{{ document.datetime }}</td>
+
+                                    <td>
+                                        <form action="{% url 'delete_documents' document.pk %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger btn-small">Remove</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2 offset-md-6">
+    
+                </div>
+
+                <div class="col-md-2">
+                    <div class="row mr-auto">
+                        <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                        <!-- <input type="submit" value="Save & Exit"  id="submit_institution" class="btn btn-primary btn-block color-text-white mb-5 mt-5"> -->
+                        <a href="{% url 'mount_payment' %}" class="btn btn-primary btn-block color-text-white mb-5 mt-5">Save & Continue</a>
+                    </div>
+                </div>
+            </div>   
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

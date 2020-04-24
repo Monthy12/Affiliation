@@ -1,0 +1,381 @@
+{% extends 'base_admin.html' %}
+
+{% block content %} 
+
+<header class="home">
+    <div class="row">
+        <div class="col md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="card">
+                <div class="card-body">
+                  
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header text-center">
+                                <div class="card-title mb-4">DETAILS OF THE INSTITUTION</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Institution</th>
+                                            <th>Programme</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                
+                                        <tr>
+                                            <td><i>{{ programmes.level }}</i></td>
+                                            <td><i>{{ programmes.inst_name }}</i></td>
+                                            <td><i>{{ programmes.programme_name }}</i></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header text-center">
+                                <div class="card-title mb-4">HEAD OF DEPARTMENT</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Department</th>
+                                            <th>Name of Head</th>
+                                            <th>Highest Qualification</th>
+                                            <th>Contact</th>
+                                            <th>Email</th>
+                                            <th>Date of Appointment As HOD</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                
+                                        <tr>
+                                            <td><i>{{ departments.department_name }}</i></td>
+                                            <td><i>{{ departments.name_department_head }}</i></td>
+                                            <td><i>{{ departments.highest_qualification }}</i></td>
+                                            <td><i>{{ departments.contact }}</i></td>
+                                            <td><i>{{ departments.email }}</i></td>
+                                            <td><i>{{ departments.appointment_date }}</i></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-sm-9">
+                          <div class="card">
+                            <div class="card-header text-center">
+                                <div class="card-title mb-4">DETAILS OF ROOM</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5">
+                                    <thead>
+                                        <tr>
+                                            <th>Dimension Of Room (in ft)</th>
+                                            <th>Type of Room</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                                
+                                        <tr>
+                                            <td><i>{{ lectureRooms.size }}</i></td>
+                                            <td><i>{{ lectureRooms.room_type }}</i></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="card">
+                              <div class="card-body">
+
+                                  <table class="table mt-5 table-hover">
+                                      <thead>
+                                          <tr>
+                                              <th>Facilities</th>
+                                              <!-- <th>Action</th> -->
+
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          {% for facility in facilitys %}
+                                          
+                                              <tr>
+                                                  <td><i>{{ facility.item_list }}</i></td>
+
+
+                                              </tr>
+                                          
+                                          {% endfor %}
+                                          
+                                      </tbody>
+                                  </table>
+                                  
+                              </div>
+                            </div>
+                          </div>
+
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header">
+                                <div class="card-title mb-4 text-center">LIBRARY AND REFERENCE</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject Area</th>
+                                            <th>No. of Books</th>
+                                            <th>No. of Reference Books</th>
+                                            <th>No. of e-books</th>
+                                            <th>No. of Audio-Visuals</th>
+                                            <th>Others (journal, etc)</th>
+            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for library in libraryBooks %}
+                                        
+                                            <tr>
+                                                <td><i>{{ library.subject_area }}</i></td>
+                                                <td><i>{{ library.book_number }}</i></td>
+                                                <td><i>{{ library.book_reference }}</i></td>
+                                                <td><i>{{ library.ebook_number }}</i></td>
+                                                <td><i>{{ library.audio_visual }}</i></td>
+                                                <td><i>{{ library.others }}</i></td>
+
+                                            </tr>
+                                        
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header">
+                                <div class="card-title mb-4 text-center">LABORATORIES AND WORKSHOPS</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type of Laborary / Workshop</th>
+                                            <th>Name of Fixed Item / Tool</th>
+                                            <th>Quantity of Fixed Item</th>
+                                            <th>Name of Consummable</th>
+                                            <th>Quantity of Consummable</th>
+            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for laboratory in laboratorys %}
+                                        
+                                            <tr>
+                                                <td><i>{{ laboratory.lab_type }}</i></td>
+                                                <td><i>{{ laboratory.fixed_item }}</i></td>
+                                                <td><i>{{ laboratory.quantity_of_fixed_item }}</i></td>
+                                                <td><i>{{ laboratory.consummable }}</i></td>
+                                                <td><i>{{ laboratory.quantity_of_consummable }}</i></td>
+
+                                            </tr>
+                                        
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header">
+                                <div class="card-title mb-4 text-center">EXAMINATION UNIT</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Quantity</th>
+            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for examinationUnit in examinationUnit %}
+                                        
+                                            <tr>
+                                                <td><i>{{ examinationUnit.item }}</i></td>
+                                                <td><i>{{ examinationUnit.quantity }}</i></td>
+
+                                            </tr>
+                                        
+                                        {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header text-center">
+                                <div class="card-title mb-4">DOCUMENTS</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Document Type</th>
+                                            <th>Document</th>
+                                            <th>Date Uploaded</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for document in documents %}
+                                        
+                                            <tr>
+                                                <td><i>{{ document.title }}</i></td>
+                                                <td><i>{{ document.document }}</i></td>
+                                                <td>{{ document.datetime }}</td>
+            
+                                                <td>
+
+                                                    <a href="{{ document.document.url }}" class="btn btn-info btn-small" target="_blank">Download</a>
+                                                </td>
+                                            </tr>
+                                        
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header text-center">
+                                <div class="card-title mb-4">PAYMENTS</div>
+                              </div>
+                            <div class="card-body">
+
+                                <table class="table mt-5 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Payment Type</th>
+                                            <th>Payment</th>
+                                            <th>Date Uploaded</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for payment in payments %}
+                                        
+                                            <tr>
+                                                <td><i>Payment Slip</i></td>
+                                                <td><i>{{ payment.payment }}</i></td>
+                                                <td>{{ payment.datetime }}</td>
+            
+                                                <td>
+
+                                                    <a href="{{ payment.payment.url }}" class="btn btn-info btn-small" target="_blank">Download</a>
+                                                </td>
+                                            </tr>
+                                         
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2 offset-md-6">
+                            <div class="row mr-auto">
+                                <form action="{% url 'programme_client_details' programmes.user_id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="submit" value="Approve" class="btn btn-primary color-text-white mb-5 mt-5 u-border-radius-small px-5">
+                                </form>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-2">
+                            <div class="row mr-auto">
+                                <a href="{% url 'decline' programmes.user_id%}" class="btn btn-primary color-text-white mb-5 mt-5 px-5">Decline</a>   
+                            </div>
+                        </div>
+                    </div>  
+
+                </div>  
+
+            </div>
+        </div>
+
+        <div class="col-md-1"></div>
+    </div>
+
+    
+
+    </div>
+</header>
+    
+
+{% endblock %}

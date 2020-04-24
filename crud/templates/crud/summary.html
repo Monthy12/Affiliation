@@ -1,0 +1,503 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Summary</p></h2>
+                <p>Please review the application details before submitting. Click the edit button to make changes where necessary.</p>
+                <p>Note the upon submitting the application,no changes can be done. </p>
+            </div>
+
+            
+            <div class="card pb-4 coll">
+
+                <div class="card-header text-center">
+
+                    <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#institution" role="tab" aria-controls="institution" aria-selected="true">Institution</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#management" role="tab" aria-controls="management" aria-selected="false">Management</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#affiliation" role="tab" aria-controls="affiliation" aria-selected="false">Other Affiliation</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#documents" role="tab" aria-controls="documents" aria-selected="false">Documents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#payments" role="tab" aria-controls="payments" aria-selected="false">Payments</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-body body-1">
+
+                    <div class="card-body">
+                    
+                    <div class="tab-content mt-3">
+                        <div class="tab-pane active" id="institution" role="tabpanel">
+
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">BASIC DETAILS OF THE INSTITUTION</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5 table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name of Institution</th>
+                                                    <th>Postal Address</th>
+                                                    <th>Date of Establishment</th>
+                                                    <th>Official Phone Number</th>
+                                                    <!-- <th>Digital Address</th> -->
+                                                    <!-- <th>Town/City</th> -->
+                                                    <!-- <th>Region</th> -->
+                                                    <th>Email</th>
+                                                    <th>Website</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for institution in institutionSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ institution.name }}</i></td>
+                                                        <td><i>{{ institution.postal_address }}</i></td>
+                                                        <td><i>{{ institution.establishment_date }}</i></td>
+                                                        <td><i>{{ institution.contact }}</i></td>
+                                                        <!-- <td><i>{{ institution.digital_address }}</i></td> -->
+                                                        <!-- <td><i>{{ institution.town }}</i></td> -->
+                                                        <!-- <td><i>{{ institution.region }}</i></td> -->
+                                                        <td><i>{{ institution.email }}</i></td>
+                                                        <td><i>{{ institution.website }}</i></td>
+
+                                                        <td><a href="{% url 'institution' %}" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">HEAD OF INSTITUTION</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5 table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Name of Head of Institution</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Email</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for institutionHead in institutionHeadSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ institutionHead.designation }}</i></td>
+                                                        <td><i>{{ institutionHead.name }}</i></td>
+                                                        <td><i>{{ institutionHead.contact }}</i></td>
+                                                        <td><i>{{ institutionHead.email }}</i></td>
+
+                                                        <td><a href="{% url 'institution_head' %}" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mb-5">
+
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                      <div class="card-header">
+                                          <div class="card-title mb-4 text-center">TYPE OF INSTITUTION</div>
+                                        </div>
+                                      <div class="card-body">
+
+                                        <table class="table mt-5 table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Type of Institution</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for institutionType in institutionTypeSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ institutionType.type }}</i></td>
+                    
+                                                        <td>
+                                                            <a href="{% url 'institution_type' %}" class="btn btn-info btn-small">Edit</a>
+                                                        </td>
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-12">
+
+                                    <div class="card">
+                                      <div class="card-header">
+                                          <div class="card-title mb-4 text-center">BUSINESS REGISTRATION DETAILS</div>
+                                        </div>
+                                      <div class="card-body">
+
+
+                                        <table class="table mt-5 table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Bussiness Registration Type</th>
+                                                    <th>Date of Registration</th>
+                                                    <th>Registration Number</th>
+                                                    <th>Agency Name</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for businessDetail in businessDetailSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ businessDetail.agency_type }}</i></td>
+                                                        <td><i>{{ businessDetail.registration_date }}</i></td>
+                                                        <td><i>{{ businessDetail.registration_number }}</i></td>
+                                                        <td><i>{{ businessDetail.agency_name }}</i></td>
+
+                                                        <td><a href="{% url 'bussiness_registeration' %}" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+  
+                                      </div>
+                                    </div>
+                                  </div>
+
+                            </div>
+
+                        </div>
+                        
+                        <div class="tab-pane" id="management" role="tabpanel" aria-labelledby="history-tab">  
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">REGISTRAR</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5 table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name of Registrar</th>
+                                                    <th>Title</th>
+                                                    <th>Date of Appointment</th>
+                                                    <th>Official Contact</th>
+                                                    <th>Personal Contact</th>
+                                                    <th>Email</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for registrar in registrarSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ registrar.name }}</i></td>
+                                                        <td><i>{{ registrar.designation }}</i></td>
+                                                        <td><i>{{ registrar.appointment_date }}</i></td>
+                                                        <td><i>{{ registrar.official_contact }}</i></td>
+                                                        <td><i>{{ registrar.personal_contact }}</i></td>
+                                                        <td><i>{{ registrar.email }}</i></td>
+                                                        <td><a href="{% url 'management_registrar' %}" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">FINANCE OFFICER</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5 table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name of Finance Officer</th>
+                                                    <th>Title</th>
+                                                    <th>Date of Appointment</th>
+                                                    <th>Official Contact</th>
+                                                    <th>Personal Contact</th>
+                                                    <th>Email</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for finance in financeSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ finance.name }}</i></td>
+                                                        <td><i>{{ finance.designation }}</i></td>
+                                                        <td><i>{{ finance.appointment_date }}</i></td>
+                                                        <td><i>{{ finance.official_contact }}</i></td>
+                                                        <td><i>{{ finance.personal_contact }}</i></td>
+                                                        <td><i>{{ finance.email }}</i></td>
+                                                        <td><a href="{% url 'management_finance' %}" class="btn btn-info btn-small">Edit</a></td>
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">EXAMINATION OFFICER</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5 table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name of Examination Officer</th>
+                                                    <th>Title</th>
+                                                    <th>Date of Appointment</th>
+                                                    <th>Official Contact</th>
+                                                    <th>Personal Contact</th>
+                                                    <th>Email</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for examiner in examinerSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ examiner.name }}</i></td>
+                                                        <td><i>{{ examiner.designation }}</i></td>
+                                                        <td><i>{{ examiner.appointment_date }}</i></td>
+                                                        <td><i>{{ examiner.official_contact }}</i></td>
+                                                        <td><i>{{ examiner.personal_contact }}</i></td>
+                                                        <td><i>{{ examiner.email }}</i></td>
+                                                        <td><a href="{% url 'management_exam_officer' %}" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- <div class="tab-pane" id="affiliation" role="tabpanel" aria-labelledby="history-tab">  
+                            <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">LIST OF MENTOR INSTITUTION</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name of Mentor Institution</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for affiliation in affiliationSummary %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ affiliation.affiliate_name }}</i></td>
+                    
+                                                        <td>
+                                                            <a href="#" class="btn btn-info btn-small">Edit</a>
+                                                        </td>
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                        
+                                    </div>
+                                  </div>
+                                </div>
+
+                            </div>
+                        </div> -->
+
+                        <div class="tab-pane" id="documents" role="tabpanel" aria-labelledby="history-tab">  
+                       
+                            <table class="table mt-5 table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Document Name</th>
+                                        <th>Document</th>
+                                        <th>Date Uploaded</th>
+                                        <th>Action</th>
+        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for document in documents %}
+                                    
+                                        <tr>
+                                            <td><i>{{ document.title }}</i></td>
+                                            <td><i>{{ document.document }}</i></td>
+                                            <td>{{ document.datetime }}</td>
+        
+                                            <td>
+                                                <!-- <form action="{% url 'delete_document' document.pk %}" method="POST">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-info btn-small">Edit</button>
+                                                </form> -->
+                                                <a href="{% url 'document_upload' %}" class="btn btn-info btn-small">Edit</a>
+                                            </td>
+                                        </tr>
+                                    
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
+                        <div class="tab-pane" id="payments" role="tabpanel" aria-labelledby="deals-tab">
+                       
+
+                            <table class="table mt-5 table-hover"> 
+                                <thead>
+                                    <tr>
+                                        <th>Payment type</th>
+                                        <th>Document</th>
+                                        <th>Date Uploaded</th>
+                                        <th>Action</th>
+        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for payment in payments %}
+                                    
+                                        <tr>
+                                            <td><i>Payment Slip</i></td>
+                                            <td><i>{{ payment.payment }}</i></td>
+                                            <td>{{ payment.datetime }}</td>
+        
+                                            <td>
+                                                <a href="{% url 'affiliate_payment' %}" class="btn btn-info btn-small">Edit</a>
+                                            </td>
+        
+                                        </tr>
+                                    
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2 offset-md-6">
+                <div class="row mr-auto">
+
+                    <form action="{% url 'affiliation_completed' %}" method="POST">
+                        {% csrf_token %}
+                        <!-- <input type="submit"  value="Submit Application" class="btn btn-primary btn-block color-text-white mb-5 mt-5" onclick="deletefile()"> -->
+                        <input type="submit"  value="Submit Application" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>   
+   
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

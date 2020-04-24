@@ -1,0 +1,97 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Details Of Lecture Room</p></h2>
+                <p> List all lecture rooms associated with the selected Programme. This should exclude Laboratories and Workshops</p>
+
+
+            </div>
+
+            <div class="card">
+                <div class="card-header text-center">DETAILS OF LECTURE ROOM</div>
+                <div class="card-body">
+
+                        <form method="POST" action="#" id="dynamic" name="dynamic">
+                            {% csrf_token %}
+
+                            <div class="row mt-4 mb-3">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="room_dimension">Dimension of Room (in ft)</label>
+                                        <input type="text" class="form-control" id="room_dimension" name="room_dimension" placeholder="eg. 16*16" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 offset-md-1">
+                                    <p><label for="room_dimension">Type of Room</label></p>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="room_type" id="inlineRadio1" value="Lecture Room">
+                                        <label class="form-check-label" for="inlineRadio1">Lecture Room</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="room_type" id="inlineRadio2" value="Class Room">
+                                        <label class="form-check-label" for="inlineRadio2">Class Room</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="room_type" id="inlineRadio2" value="Hall Theatre">
+                                        <label class="form-check-label" for="inlineRadio2">Hall Theatre</label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="table-responsive">
+                                <table class="table table-hover"  id="dynamic_facility">
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <label for="facilities">Facilities</label>
+                                                <input type="text" class="form-control" id="facility" name="facility" placeholder="Name of Facility">
+                                            </div>
+                                            
+                                        </td>
+
+                                        <td>
+                                            <input type="button" value="Add new Facility" name= "add_facility" id="add_facility" class="btn btn-success color-text-white btn-bottom-small">
+                                        </td >
+                                    </tr>
+
+                                </table>
+
+
+                                <div class="row">
+                                    <div class="col-md-2 offset-md-6">
+                                        <div class="row mr-auto">
+                                            <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                            <input type="submit"  id="submit_facility" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                        </div>
+                                    </div>
+                
+                                </div>
+
+                            </div>
+                        </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

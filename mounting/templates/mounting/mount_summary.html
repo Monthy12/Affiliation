@@ -1,0 +1,457 @@
+{% extends 'base_mount.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Summary</p></h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores molestias temporibus sapiente, quae inventore eaque quisquam numquam voluptate illo consectetur, ex illum accusantium aliquam voluptatem odit officiis eum placeat quaerat aliquid iure consequatur et? Vero nostrum exercitationem ipsa molestiae explicabo et illo modi? Repudiandae voluptatum esse corporis praesentium ad atque.</p>
+            </div>
+
+            
+            <div class="card pb-4 coll">
+
+                <div class="card-header text-center">
+
+                    <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#applied_programme" role="tab" aria-controls="applied_programme" aria-selected="true">Mount a Programme</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#head_of_department" role="tab" aria-controls="head_of_department" aria-selected="false">Head of Department</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#details_of_room" role="tab" aria-controls="details_of_room" aria-selected="false">Details of Room</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#library" role="tab" aria-controls="library" aria-selected="false">Library and Reference</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#laboratory" role="tab" aria-controls="laboratory" aria-selected="false">Laboratories and Workshops</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#exams" role="tab" aria-controls="exams" aria-selected="false">Examination Unit</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#documents" role="tab" aria-controls="documents" aria-selected="false">Documents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#payments" role="tab" aria-controls="payments" aria-selected="false">Payments</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-body body-1">
+
+                    <div class="card-body">
+                    
+                    <div class="tab-content mt-3">
+
+                        <div class="tab-pane active" id="applied_programme" role="tabpanel">
+
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">MOUNT A PROGRAMME</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Level</th>
+                                                    <th>Programme</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for programme in programmeSummarys %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ programme.level }}</i></td>
+                                                        <td><i>{{ programme.programme_name }}</i></td>
+     
+
+                                                        <td><a href="#" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="tab-pane" id="head_of_department" role="tabpanel" aria-labelledby="history-tab">  
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">HEAD OF DEPARTMENT</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Department</th>
+                                                    <th>Name of Head</th>
+                                                    <th>Highest Qualification</th>
+                                                    <th>Contact</th>
+                                                    <th>Email</th>
+                                                    <th>Date of Appointment As HOD</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for headDepartment in headDepartmentSummarys %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ headDepartment.department_name }}</i></td>
+                                                        <td><i>{{ headDepartment.name_department_head }}</i></td>
+                                                        <td><i>{{ headDepartment.highest_qualification }}</i></td>
+                                                        <td><i>{{ headDepartment.contact }}</i></td>
+                                                        <td><i>{{ headDepartment.email }}</i></td>
+                                                        <td><i>{{ headDepartment.appointment_date }}</i></td>
+
+                                                        <td><a href="{% url 'document_upload' %}" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="details_of_room" role="tabpanel" aria-labelledby="history-tab">  
+                            <div class="row">
+                                <div class="col-sm-9">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">DETAILS OF ROOM</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Dimension Of Room (in ft)</th>
+                                                    <th>Type of Room</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for lectureRoom in lectureRoomSummarys %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ lectureRoom.size }}</i></td>
+                                                        <td><i>{{ lectureRoom.room_type }}</i></td>
+                                                       
+                                                            
+                                                        <td>
+                                                            <a href="#" class="btn btn-info btn-small">Edit</a>
+                                                        </td>
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                        
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <div class="card">
+                                      <div class="card-body">
+  
+                                          <table class="table mt-5">
+                                              <thead>
+                                                  <tr>
+                                                      <th>Facilities</th>
+                                                      <!-- <th>Action</th> -->
+
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  {% for facility in facilitySummarys %}
+                                                  
+                                                      <tr>
+                                                          <td><i>{{ facility.item_list }}</i></td>
+
+
+                                                      </tr>
+                                                  
+                                                  {% endfor %}
+                                                  
+                                              </tbody>
+                                          </table>
+                                          
+                                      </div>
+                                    </div>
+                                  </div>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="library" role="tabpanel" aria-labelledby="history-tab">  
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">LIBRARY AND REFERENCE</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Subject Area</th>
+                                                    <th>No. of Books</th>
+                                                    <th>No. of Reference Books</th>
+                                                    <th>No. of e-books</th>
+                                                    <th>No. of Audio-Visuals</th>
+                                                    <th>Others (journal, etc)</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for library in librarySummarys %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ library.subject_area }}</i></td>
+                                                        <td><i>{{ library.book_number }}</i></td>
+                                                        <td><i>{{ library.book_reference }}</i></td>
+                                                        <td><i>{{ library.ebook_number }}</i></td>
+                                                        <td><i>{{ library.audio_visual }}</i></td>
+                                                        <td><i>{{ library.others }}</i></td>
+
+                                                        <td><a href="{% url 'document_upload' %}" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="tab-pane" id="laboratory" role="tabpanel" aria-labelledby="history-tab">  
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">LABORATORIES AND WORKSHOPS</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Type of Laborary / Workshop</th>
+                                                    <th>Name of Fixed Item / Tool</th>
+                                                    <th>Quantity of Fixed Item</th>
+                                                    <th>Name of Consummable</th>
+                                                    <th>Quantity of Consummable</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for laboratory in laboratorySummarys %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ laboratory.lab_type }}</i></td>
+                                                        <td><i>{{ laboratory.fixed_item }}</i></td>
+                                                        <td><i>{{ laboratory.quantity_of_fixed_item }}</i></td>
+                                                        <td><i>{{ laboratory.consummable }}</i></td>
+                                                        <td><i>{{ laboratory.quantity_of_consummable }}</i></td>
+
+                                                        <td><a href="#" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="exams" role="tabpanel" aria-labelledby="history-tab">  
+                            <div class="row mb-5">
+                                <div class="col-sm-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title mb-4 text-center">EXAMINATION UNIT</div>
+                                      </div>
+                                    <div class="card-body">
+
+                                        <table class="table mt-5">
+                                            <thead>
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Quantity</th>
+                                                    <th>Action</th>
+                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for examinationUnit in examinationUnitSummarys %}
+                                                
+                                                    <tr>
+                                                        <td><i>{{ examinationUnit.item }}</i></td>
+                                                        <td><i>{{ examinationUnit.quantity }}</i></td>
+
+                                                        <td><a href="#" class="btn btn-info btn-small">Edit</a></td>
+
+                                                    </tr>
+                                                
+                                                {% endfor %}
+                                                
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="tab-pane" id="documents" role="tabpanel" aria-labelledby="history-tab">  
+                       
+                            <table class="table mt-5">
+                                <thead>
+                                    <tr>
+                                        <th>Document Name</th>
+                                        <th>Document</th>
+                                        <th>Date Uploaded</th>
+                                        <th>Action</th>
+        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for document in documents %}
+                                    
+                                        <tr>
+                                            <td><i>{{ document.title }}</i></td>
+                                            <td><i>{{ document.document }}</i></td>
+                                            <td>{{ document.datetime }}</td>
+        
+                                            <td>
+   
+                                                <a href="{% url 'mount_document' %}" class="btn btn-info btn-small">Edit</a>
+                                            </td>
+                                        </tr>
+                                    
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
+                        <div class="tab-pane" id="payments" role="tabpanel" aria-labelledby="deals-tab">
+                       
+
+                            <table class="table mt-5"> 
+                                <thead>
+                                    <tr>
+                                        <th>Payment type</th>
+                                        <th>Document</th>
+                                        <th>Date Uploaded</th>
+                                        <th>Action</th>
+        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for payment in payment_lists %}
+                                    
+                                        <tr>
+                                            <td><i>Payment Slip</i></td>
+                                            <td><i>{{ payment.payment }}</i></td>
+                                            <td>{{ payment.datetime }}</td>
+        
+                                            <td>
+                                                <a href="{% url 'mount_payment' %}" class="btn btn-info btn-small">Edit</a>
+                                            </td>
+        
+                                        </tr>
+                                    
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2 offset-md-6">
+                <div class="row mr-auto">
+
+                    <form action="{% url 'mounted_completed' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="submit"  value="Submit Application" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>   
+   
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

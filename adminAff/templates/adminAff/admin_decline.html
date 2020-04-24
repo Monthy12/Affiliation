@@ -1,0 +1,55 @@
+{% extends 'base_admin.html' %}
+
+{% block content %} 
+    
+<header class="home">
+    <div class="row">
+        <div class="col md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <form action="#" method="POST">
+
+                <div class="form-group">
+
+
+                    <div class="row mb-5">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-4">REASONS FOR DECLINING</h5>
+                                </div>
+                                <form action="#" method="POST">
+                                    {% csrf_token %}
+                                    <div class="card-body">
+
+                                        <label for="message_decline">Message</label>
+                                        <textarea class="form-control" id="message_decline" name="message_decline" rows="12"></textarea>
+
+                                        <div class="row">
+                                            <div class="col-md-2 offset-md-5">
+                                                <div class="row mr-auto">
+                                                    <input type="submit" value="Submit" class="btn btn-primary color-text-white mb-5 mt-5 u-border-radius-small px-5">
+                                                </div>
+                                            </div>
+                                        
+                                        </div> 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

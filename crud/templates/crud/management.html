@@ -1,0 +1,238 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<header class="home">
+        <div class="row">
+            <div class="col md-2"></div>
+
+            <div class="col-md-9 margin-big text_justify pl-5">
+
+                <div class="alert alert-info mb-5" role="alert">
+                    <h2><p class="mb-4">Details of Key Management Staff</p></h2>
+                    <p> This section deals information of your institution's key Management Staff. You are required to attend to all fields provided.</p>
+    
+                </div>
+
+                    <form method="POST" action="#" id="add_inst" name="add_inst">
+                        {% csrf_token %}
+                        {{ form.media }}
+                        <div class="card pb-4 coll">
+                            <div class="card-header text-center">
+                                REGISTRAR 
+                            </div>
+
+                            <div class="card-body body-1">
+    
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_name">Name of Registrar</label>
+                                            <input type="text" class="form-control" id="re_name" name="re_name" placeholder="Name of Registrar" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_designation">Title</label>
+                                            <select class="form-control" id="re_designation" name="re_designation" required>
+                                                <option value="">--- Please Select ---</option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Miss">Miss</option>
+                                                <option value="Dr">Dr</option>
+                                                <option value="Prof">Prof</option>
+                                                <option value="Rev">Rev</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_appointment_date">Date of Appointment</label>
+                                            {{ form.appointment_date }}
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_personal_contact">Personal Contact</label>
+                                            <input type="text" class="form-control" id="re_personal_contact" name="re_personal_contact" placeholder="eg. 0207889837" required>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_official_contact">Official Contact</label>
+                                            <input type="text" class="form-control" id="re_official_contact" name="re_official_contact" placeholder="eg. 0307889837" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_email">Email</label>
+                                            <input type="email" class="form-control" id="re_email" name="re_email" placeholder="eg. samfox@gmail.com" required>
+                                        </div>
+                                    </div>
+    
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card pb-4 coll mt-5">
+
+                            <div class="card-header text-center">
+                                FINANCE OFFICER
+                                <!-- <i class="fas fa-minus open" id="item1"></i> -->
+                            </div>
+
+                            <div class="card-body body-1">
+    
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="fin_name">Name of Finance Officer</label>
+                                            <input type="text" class="form-control" id="fin_name" name="fin_name" placeholder="Name of Finance Officer" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="fin_designation">Title</label>
+                                            <select class="form-control" id="fin_designation" name="fin_designation" required>
+                                                <option value="">--- Please Select ---</option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Miss">Miss</option>
+                                                <option value="Dr">Dr</option>
+                                                <option value="Prof">Prof</option>
+                                                <option value="Rev">Rev</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_appointment_date">Date of Appointment</label>
+                                            {{ form.appointment_date }}
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="fin_personal_contact">Personal Contact</label>
+                                            <input type="text" class="form-control" id="fin_personal_contact" name="fin_personal_contact" placeholder="eg. 0207889837" required>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="fin_official_contact">Official Contact</label>
+                                            <input type="text" class="form-control" id="fin_official_contact" name="fin_official_contact" placeholder="eg. 0307889837" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="fin_email">Email</label>
+                                            <input type="email" class="form-control" id="fin_email" name="fin_email" placeholder="eg. samfox@gmail.com" required>
+                                        </div>
+                                    </div>
+    
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+
+                        <div class="card pb-4 coll mt-5">
+
+                            <div class="card-header text-center">
+                                EXAMINATION OFFICER
+                                <!-- <i class="fas fa-minus open" id="item1"></i> -->
+                            </div>
+
+                            <div class="card-body body-1">
+    
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="ex_name">Name of Examination Officer</label>
+                                            <input type="text" class="form-control" id="ex_name" name="ex_name" placeholder="Name of Examination Officer" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="ex_designation">Title</label>
+                                            <select class="form-control" id="ex_designation" name="ex_designation" required>
+                                                <option value="">--- Please Select ---</option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Miss">Miss</option>
+                                                <option value="Dr">Dr</option>
+                                                <option value="Prof">Prof</option>
+                                                <option value="Rev">Rev</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="re_appointment_date">Date of Appointment</label>
+                                            {{ form.appointment_date }}
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="ex_personal_contact">Personal Contact</label>
+                                            <input type="text" class="form-control" id="ex_personal_contact" name="ex_personal_contact" placeholder="eg. 0207889837" required>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="ex_official_contact">Official Contact</label>
+                                            <input type="text" class="form-control" id="ex_official_contact" name="ex_official_contact" placeholder="eg. 0307889837" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="ex_email">Email</label>
+                                            <input type="email" class="form-control" id="ex_email" name="ex_email" placeholder="eg. samfox@gmail.com" required>
+                                        </div>
+                                    </div>
+    
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-2 offset-md-8">
+                                <div class="row mr-auto">
+                                    <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                    <input type="submit"  id="submit_institution" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                </div>
+                            </div>
+                        </div>        
+
+                    </form> 
+
+            </div>
+
+            <div class="col-md-1"></div>
+
+        </div>
+</header>
+
+{% endblock %}

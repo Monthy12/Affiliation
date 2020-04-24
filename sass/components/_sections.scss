@@ -1,0 +1,14 @@
+.site-navbar {
+    background: $color-primary-unique;
+    color: $color-white;
+}
+
+.home-small-bar {
+    height: 100vh;
+    // background-image: url("{% static '../../img/book.png' %}");
+    background-image: url( "{% static '../../../../img/mountains.jpg %}");
+}
+
+.home-image-background {
+    background-image: cover;
+}

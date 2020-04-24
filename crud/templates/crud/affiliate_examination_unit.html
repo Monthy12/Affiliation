@@ -1,0 +1,292 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info mb-5" role="alert">
+                <h2><p class="mb-4">Examination Unit</p></h2>
+                <p>Please provide the quantities of the items found in your Examination Unit. Please note all fields are mandatory.Enter number 0 if you do not have any of the listed items </p>
+
+            </div>
+
+            <div class="card">
+                <div class="card-header text-center">EXAMINATION UNIT</div>
+                <div class="card-body">
+
+                        <form method="POST" action="#" id="add_name" name="add_name">
+                            {% csrf_token %}
+                            <div class="table-responsive">
+                                <table class="table table-hover "  id="dynamic_fields">
+
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">Item</th>
+                                          <!-- <th scope="col">Choice</th> -->
+                                          <th scope="col">Quantity</th>
+                                          <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">Computers</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <p>
+                                            <!-- <td>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="exam_choice" id="yes" value="Computer">
+                                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                                </div>
+            
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="exam_choice" id="no" value="Computer">
+                                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                                </div>
+    
+                                            </td> -->
+    
+                                            <td>
+                                                <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                            </td>
+                                        </p>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">Printers</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <!-- <td>
+                                            
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" name="exam_choice1" id="yes1" value="Printer">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+        
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice1" id="no1" value="Printer">
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </td> -->
+
+                                        <td>
+                                            <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">UPS</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <!-- <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice2" id="yes2" value="UPS">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+        
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice2" id="no2" value="UPS">
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </td> -->
+
+                                        <td>
+                                            <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">Backup System</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <!-- <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice3" id="yes3" value="Backup System">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+        
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice3" id="no3" value="Backup System">
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </td> -->
+
+                                        <td>
+                                            <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">Cabinets</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <!-- <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice4" id="yes4" value="Cabinets">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+        
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice4" id="no4" value="Cabinets">
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </td> -->
+
+                                        <td>
+                                            <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">Reprographic Machines</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <!-- <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice5" id="yes5" value="Reprographic Machines">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+        
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice5" id="no5" value="Reprographic Machines">
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </td> -->
+
+                                        <td>
+                                            <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">Safes</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <!-- <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice6" id="yes6" value="Safes">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+        
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice6" id="no6" value="Safes">
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </td> -->
+
+                                        <td>
+                                            <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <div class="#">Workiing Desk</div>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <!-- <td>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice7" id="yes7" value="Workiing Desk">
+                                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                            </div>
+        
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="exam_choice7" id="no7" value="Workiing Desk">
+                                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                            </div>
+
+                                        </td> -->
+
+                                        <td>
+                                            <input type="text" class="form-control" id="exam_quantity" name="exam_quantity" placeholder="eg. 5" required>
+                                        </td>
+
+
+                                        <!-- <td>
+                                            <input type="button" value="Add new entry" name= "add_exam" id="add_exam" class="btn btn-success">
+                                        </td > -->
+                                    </tr>
+
+                                </table>
+
+                                <!-- <input type="submit" name="submit" id="submit"  value="Save & Continue" class="btn btn-primary color-text-white mt-3 pl-4 pr-4">
+                                <input type="submit" name="submit" id="submit"  value="Save & Exit" class="btn btn-primary color-text-white mt-3 pl-4 pr-4"> -->
+
+                                <div class="row">
+                                    <div class="col-md-2 offset-md-6">
+                                        <div class="row mr-auto">
+                                            <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                            <input type="submit"  id="submit_mentor" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                        </div>
+                                    </div>
+                
+                                </div>
+
+                            </div>
+                        </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}

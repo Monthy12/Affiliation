@@ -1,0 +1,90 @@
+{% extends 'base_layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<header class="home">
+        <div class="row">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-9 margin-big text_justify pl-5">
+
+                        <form method="POST" action="#" id="add_inst" name="add_inst">
+                            {% csrf_token %}
+                            {{ form.media }}
+                       
+                            
+                            
+                            <div class="card mt-5 pb-4">
+                                
+                                <div class="card-header text-center">
+                                    Business Registration Details
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="business">Bussiness Registration Type</label>
+                                                <select class="form-control" id="business" name="business" onchange="myBusinessFunction()" required>
+                                                    <option value="">--- Please Select ---</option>
+                                                    <option value="RGD">Registrar General Department</option>
+                                                    <option value="MMDA">Metropolitan, Municipal and District Assemblies</option>
+                                                    <option value="Professional Agency">Professional Agency</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="registration_date">Date of Registration</label>
+
+                                                {{ form.registration_date }}
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="registration_number">Registration Number</label>
+                                                <input type="text" class="form-control" id="registration_number" name="registration_number" placeholder="Registration Number" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4" id="agency_all">
+                                            <div class="form-group">
+                                                <label for="agency_name">Agency Name</label>
+                                                <input type="text" class="form-control" id="agency_name" name="agency_name" placeholder="Agency Name">
+                                            </div>
+                                        </div>
+        
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-2 offset-md-8">
+                                    <div class="row mr-auto">
+                                        <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                        <input type="submit"  id="submit_institution" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                    </div>
+                                </div>
+            
+                            </div>        
+
+                        </form> 
+
+            </div>
+
+            <div class="col-md-1"></div>
+
+        </div>
+</header>
+
+{% endblock %}

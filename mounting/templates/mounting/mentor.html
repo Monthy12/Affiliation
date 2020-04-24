@@ -1,0 +1,85 @@
+{% extends 'base_mount.html' %}
+
+{% block content %}
+
+<header class="home">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 margin-big text_justify pl-5">
+
+            <div class="alert alert-info" role="alert">
+                <h2><p>Mentor Institution</p></h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque dolore perspiciatis ad error iste, soluta velit ducimus expedita nesciunt dignissimos libero laudantium quam, voluptates culpa. Inventore quasi possimus in facilis expedita! Nihil laborum voluptates dolorum omnis accusantium harum sed ipsa, aperiam nobis vel assumenda consequatur quis reiciendis error deleniti officia.</p>
+
+
+            </div>
+
+            <div class="card">
+                <h5 class="card-header text-center">MENTOR INSTITUTION</h5>
+                <div class="card-body">
+
+                        <form method="POST" action="#" id="add_name" name="add_name">
+                            {% csrf_token %}
+                            <div class="table-responsive">
+                                <table class="table table-hover "  id="dynamic_fields">
+
+                                    <tr>
+                                        <td>
+                                            <div class="margin-bottom-small">
+                                                <label for="mentor">Mentor Institution</label>
+                                                <input type="text" class="form-control" id="mentor" name="mentor" placeholder="Name of Mentor Institution" required>
+                                            </div>
+                                            
+                                        </td>
+
+                                        <td>
+                                            <label for="mentor_programme">Pragramme</label>
+                                            <input type="text" class="form-control" id="mentor_programme" name="mentor_programme" placeholder="Programmes run by Mentor Institution" required>
+                                        </td>
+
+                                        <td>
+                                            <label for="level">Level</label>
+                                            <select class="form-control" id="level" name="level" required>
+                                                <option value="">--- Please Select Level ---</option>
+                                                <option value="Bachelor">Bachelor</option>
+                                                <option value="Masters">Masters</option>
+                                                <option value="PHD">PHD</option>
+                                            </select>
+                                        </td>
+
+
+                                        <td>
+                                            <input type="button" value="Add new entry" name= "add_mentor" id="add_mentor" class="btn btn-success color-text-white btn-bottom-small">
+                                        </td >
+                                    </tr >
+
+                                </table>
+
+                                <!-- <input type="submit" name="submit" id="submit"  value="Save & Continue" class="btn btn-primary color-text-white mt-3 pl-4 pr-4">
+                                <input type="submit" name="submit" id="submit"  value="Save & Exit" class="btn btn-primary color-text-white mt-3 pl-4 pr-4"> -->
+
+                                <div class="row">
+                                    <div class="col-md-2 offset-md-6">
+                                        <div class="row mr-auto">
+                                            <!-- <input type="submit" value="Proceed" class="btn btn-primary btn-block color-text-white mb-5 mt-5 u-border-radius-small" href="{% url 'institution' %}"> -->
+                                            <input type="submit"  id="submit_mentor" value="Save & Continue" class="btn btn-primary btn-block color-text-white mb-5 mt-5">
+                                        </div>
+                                    </div>
+                
+                                </div>
+
+                            </div>
+                        </form>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1"></div>
+
+    </div>
+</header>
+
+{% endblock %}
